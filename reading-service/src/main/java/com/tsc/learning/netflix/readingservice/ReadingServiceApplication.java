@@ -1,5 +1,6 @@
 package com.tsc.learning.netflix.readingservice;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.tsc.learning.netflix.readingservice.config.RibbonConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -34,11 +35,16 @@ public class ReadingServiceApplication {
     @Autowired
     RestTemplate restTemplate;
 
+    @HystrixCommand(fallbackMethod = "defaultBooks")
     @RequestMapping("/to-read")
     public String readingList() {
         URI uri = URI.create("http://book-service/recommended");
 
         return restTemplate.getForObject(uri, String.class);
+    }
+
+    public String defaultBooks() {
+        return "Cloud Native Java (O'Reilly)";
     }
 
     public static void main(String[] args) {
