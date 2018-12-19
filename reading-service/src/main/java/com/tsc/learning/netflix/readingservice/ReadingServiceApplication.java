@@ -17,11 +17,11 @@ import org.springframework.web.client.RestTemplate;
 import java.net.URI;
 
 @EnableCircuitBreaker
+@SpringBootApplication
 @RestController
 @RibbonClient(
-        name = "reading-service",
+        name = "book-service",
         configuration = RibbonConfig.class)
-@SpringBootApplication
 public class ReadingServiceApplication {
 
     @LoadBalanced
@@ -36,7 +36,7 @@ public class ReadingServiceApplication {
 
     @RequestMapping("/to-read")
     public String readingList() {
-        URI uri = URI.create("http://localhost:8082/recommended");
+        URI uri = URI.create("http://book-service/recommended");
 
         return restTemplate.getForObject(uri, String.class);
     }

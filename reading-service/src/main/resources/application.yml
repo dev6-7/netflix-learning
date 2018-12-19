@@ -5,8 +5,9 @@ spring:
 server:
   port: 8083
 
-ribbon:
-  eureka:
-    enabled: false
-  listOfServers: localhost:8082, localhost:9999
-  ServerListRefreshInterval: 15000
+book-service:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: localhost:8082
+    ServerListRefreshInterval: 15000
