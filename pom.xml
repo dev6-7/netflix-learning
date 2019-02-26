@@ -4,8 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.tsc.learning</groupId>
-	<artifactId>learning</artifactId>
+	<artifactId>netflix-learning</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -22,8 +23,8 @@
 	</properties>
 	
 	<modules>
-		<module>netflix-learning</module>
-		<module>book-service</module>
+		<module>eureka-server</module>
+		<module>task-service</module>
 		<module>reading-service</module>
 	</modules>
 </project>

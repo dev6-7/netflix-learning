@@ -5,9 +5,16 @@ spring:
 server:
   port: 8083
 
-book-service:
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+
+task-service:
   ribbon:
     eureka:
-      enabled: false
+      enabled: true
     listOfServers: localhost:8082
     ServerListRefreshInterval: 15000
