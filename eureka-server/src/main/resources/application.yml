@@ -5,24 +5,15 @@ spring:
   application:
     name: eureka-server
   security:
+    basic:
+      enabled: false
     user:
       name: admin
       password: 1
+    sessions: stateless
 
 logging:
   level:
-    org:
-      springframework:
-        security: DEBUG
-
-eureka:
-  instance:
-    hostname: localhost
-    preferIpAddress: false
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-  server:
-    waitTimeInMsWhenSyncEmpty: 0
+    root: INFO
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"

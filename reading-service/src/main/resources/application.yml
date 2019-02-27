@@ -6,11 +6,16 @@ server:
   port: 8083
 
 eureka:
+  instance:
+    appname: reading-service
   client:
+    healthcheck:
+      enabled: true
+    enabled: true
     registerWithEureka: true
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:8888/eureka/
+      defaultZone: http://localhost:8888/eureka
 
 task-service:
   ribbon:

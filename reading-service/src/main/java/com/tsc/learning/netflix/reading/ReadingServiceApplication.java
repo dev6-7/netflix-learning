@@ -36,9 +36,9 @@ public class ReadingServiceApplication {
     @Qualifier("restTemplate")
     RestTemplate restTemplate;
 
-    @RequestMapping("/to-read")
+    @RequestMapping("/taskList")
     @HystrixCommand(fallbackMethod = "defaultTask")
-    public String readingList() {
+    public String taskList() {
         URI uri = URI.create("http://task-service/taskList");
         return restTemplate.getForObject(uri, String.class);
     }
