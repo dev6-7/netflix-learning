@@ -26,5 +26,6 @@
 		<module>eureka-server</module>
 		<module>task-service</module>
 		<module>reading-service</module>
+		<module>gateway-service</module>
 	</modules>
 </project>
