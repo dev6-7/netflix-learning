@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TaskController {
 
     @RequestMapping(value = "/taskList")
-    public String taskList(){
+    public String taskList() {
         return "Create config, Create BE, Create FE";
     }
 }
